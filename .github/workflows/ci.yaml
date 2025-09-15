@@ -21,6 +21,8 @@ jobs:
           aws-region: us-east-1
       - name: Setup kubectl
         run: aws eks update-kubeconfig --name eks-rtf-test
+      - name: get identity
+        run: aws sts get-caller-identity
       - name: list pods
         run: kubectl get pods --all-namespaces
       - name: delete config
