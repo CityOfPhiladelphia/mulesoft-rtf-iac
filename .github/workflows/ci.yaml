@@ -3,7 +3,7 @@ on: [push]
 
 jobs:
   kubectl:
-    runs-on: selfhosted
+    runs-on: self-hosted
     steps:
       - name: Retrieve secrets from Keeper
         id: ksecrets
