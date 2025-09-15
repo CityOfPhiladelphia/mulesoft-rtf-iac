@@ -5,6 +5,8 @@ jobs:
   kubectl:
     runs-on: self-hosted
     steps:
+      - name: delete config
+        run: run ~/.kube/config
       - name: Retrieve secrets from Keeper
         id: ksecrets
         uses: Keeper-Security/ksm-action@master
