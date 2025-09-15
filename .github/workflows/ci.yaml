@@ -15,6 +15,6 @@ jobs:
             fNW6hNUZMImoX21IaGRcQw/field/login > env:AWS_ACCESS_KEY_ID
             fNW6hNUZMImoX21IaGRcQw/field/password > env:AWS_SECRET_ACCESS_KEY
       - name: Setup kubectl
-        run: aws eks update-kubeconfig --region us-east-1 -name eks-rtf-test
+        run: aws eks update-kubeconfig --region us-east-1 --name eks-rtf-test
       - name: list pods
         run: kubectl get pods --all-namespaces
