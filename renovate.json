@@ -6,6 +6,9 @@
   "ignorePresets": [
     ":ignoreModulesAndTests"
   ],
+  "assignees": [
+    "Weastie"
+  ],
   "terraform": {
     "pinDigests": true
   },
