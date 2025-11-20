@@ -75,7 +75,7 @@ resource "aws_iam_role_policy_attachments_exclusive" "external_secrets" {
 }
 
 module "aws_load_balancer_controller_policy" {
-  source      = "git::https://github.com/CityOfPhiladelphia/citygeo-terraform-eks-helpers.git//aws-load-balancer-controller-policy?ref=main"
+  source      = "git::https://github.com/CityOfPhiladelphia/citygeo-terraform-eks-helpers.git//aws-load-balancer-controller-policy?ref=502744b80a1661607121a80c3561f879555d6c30"
   policy_name = "${var.app_name}-${var.env_name}-eks-alb-controller"
 }
 

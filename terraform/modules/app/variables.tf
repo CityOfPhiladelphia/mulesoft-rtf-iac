@@ -6,6 +6,7 @@ variable "app_name" {
   type = string
 }
 
+# tflint-ignore: terraform_unused_declarations
 variable "vpc_id" {
   type = string
 }
