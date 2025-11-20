@@ -13,3 +13,9 @@ variable "vpc_id" {
 variable "eks_subnet_ids" {
   type = list(string)
 }
+
+variable "eks_admins_iam_arns" {
+  type = list(string)
+}
+
+

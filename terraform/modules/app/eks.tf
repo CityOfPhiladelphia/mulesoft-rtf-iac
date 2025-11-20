@@ -1,17 +1,28 @@
-# Don't create EKS cluster yet
+# Unfortunately, it is too hard
+# to replicate the existing EKS
+# cluster that was made with EKSCTL
+#
+# At some point in the future, we should
+# delete the EKS clusters and make them
+# with Terraform, but for now we will survive
 data "aws_eks_cluster" "main" {
   name = "eks-${var.app_name}-${var.env_name}"
 }
 
-resource "aws_eks_access_entry" "terraform" {
+# Gives access to an arbitrary list of IAM roles,
+# used mainly to allow viewing EKS resources in the AWS
+# console
+resource "aws_eks_access_entry" "admins" {
+  for_each      = toset(var.eks_admins_iam_arns)
   cluster_name  = data.aws_eks_cluster.main.name
-  principal_arn = data.aws_caller_identity.current.arn
+  principal_arn = each.value
 }
 
-resource "aws_eks_access_policy_association" "terraform" {
+resource "aws_eks_access_policy_association" "admins" {
+  for_each      = toset(var.eks_admins_iam_arns)
   cluster_name  = data.aws_eks_cluster.main.name
   policy_arn    = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
-  principal_arn = data.aws_caller_identity.current.arn
+  principal_arn = each.value
 
   access_scope {
     type = "cluster"
