@@ -13,7 +13,9 @@ Mulesoft RTF is not built well and therefore you cannot trust AWS's builtin "Upd
     1. Node IAM Role -> `EKS-RTF-Role`
     1. Instance types -> `r8a.xlarge` (or find an equivalent if this is unavailable in the future)
     1. Desired, Min, Max size -> 2 (or however big the current one is)
-    1. Subnets -> Default should work ,just make sure they match the current node group
+    1. Add tag "Name" = "eks-rtf-{env}-node"
+    1. Disk size = 150Gb
+    1. Subnets -> Default should work, just make sure they match the current node group
 1. Wait for the node group to be fully ready (~5 mins)
 1. Repeat this process until the old node group has 1 node left (capacity = 1)
     1. Decrease the old Node Group desired, min, max capacity by 1
