@@ -3,7 +3,7 @@ data "aws_kms_alias" "ssm" {
   name = "alias/aws/ssm"
 }
 
-// Shared-GSG -> Github -> Keepercfg
+// Shared-GSG -> Mulesoft -> RTF Keeper Key
 data "secretsmanager_login" "keeper" {
-  path = "l4pqeAaAA7HGzEXaNdKVWQ"
+  path = "VJGhv311blHgWCPTtoGJnw"
 }
